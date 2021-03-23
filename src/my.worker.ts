@@ -1,8 +1,12 @@
 import * as Comlink from 'comlink';
 
 class WebpackWorker {
-  public toUpperCase(text: string): string {
-    return text.toUpperCase();
+  public async toUpperCase(text: string): Promise<string> {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(text.toUpperCase());
+      }, 5000);
+    });
   }
 }
 
